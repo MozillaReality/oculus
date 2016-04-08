@@ -14,6 +14,4 @@ function $$ (selector, parent) {
   return toArray(parent.querySelectorAll(selector));
 }
 
-console.log($('a-scene'));
-
 })();

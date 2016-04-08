@@ -10,36 +10,33 @@
     <script src="assets/js/lib/aframe-extras.js"></script>
     <script src="assets/js/lib/aframe-text-component.js"></script>
     <script src="assets/js/fonts/graph-black.js"></script>
+    <script src="assets/js/aframe-link-component.js"></script>
     <script defer src="assets/js/main.js"></script>
   </head>
   <body>
     <a-scene>
       <!-- User -->
       <a-entity camera
+                cursor-visible="enabled: true"
                 look-controls
                 wasd-controls="acceleration: 200"
                 gamepad-controls
                 kinematic-body
                 jump-ability
-                position="0 1.764 0"></a-entity>
+                position="0 1.764 0">
+
+        <a-entity id="cursor" cursor="fuse: true; maxDistance: 10; timeout: 200" geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01" material="color: #004a7e" position="0 0 -0.69"></a-entity>
+
+      </a-entity>
 
       <!-- Ground -->
       <a-grid static-body material="src: url(assets/img/grid.png); repeat: 75 75"></a-grid>
 
-      <a-entity position="0 0 -4">
+      <a-entity id="tron" position="0 0 -4" href="worlds/tron/">
         <a-box color="#39BB82" width="2.75" height="2.75" depth="1">
           <a-entity text="font: Graph Black; size: 1; text: Tron" material="color: #fff" position="-1.25 0 0.75"></a-entity>
         </a-box>
       </a-entity>
-
-<!--       <a-box color="#39BB82"
-             width="1" height="1" depth="1"
-             position="15 2 -0.6"
-             dynamic-body></a-box>
-      <a-box color="#39BB82"
-             width="1" height="1" depth="1"
-             position="15 4 0"
-             dynamic-body></a-box> -->
 
       <!-- Lighting -->
       <a-light type="ambient" color="#bbb"></a-light>
