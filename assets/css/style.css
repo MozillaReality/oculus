@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden-text {
+  display: block;
+  text-indent: -9999px;
+}
+
+a {
+  text-decoration: none;
+  transition: .1s color ease-in, .1s border-color ease-in;
+}
+
+html {
+  font-size: 11px;
+}
+
+html, body {
+  background: #111;
+  height: 100%;
+}
+
+body {
+  color: #fff;
+  font-size: 1.25rem;
+  font-size: calc(1rem + 1vw);
+  line-height: 1.5;
+  min-width: 500px;
+}
+
+body,
+.a-enter-vr-modal {
+  font-family: Andale Mono, Courier New, monospace;
+}
+
+.a-enter-vr-modal {
+  font-size: 1rem;
+  height: auto;
+  min-height: 32px;
+}
+
+.a-enter-vr-modal a {
+  border-bottom: 1px solid #fff;
+  padding: 2px 0;
+}
+
+.a-enter-vr-modal a:hover {
+  background-color: #fff;
+  color: #111;
+  padding: 2px 4px;
+  position: relative;
+  left: -4px;
+  text-decoration: none;
+}
