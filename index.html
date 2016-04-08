@@ -12,10 +12,12 @@
     <script src="assets/js/fonts/graph-black.js"></script>
     <script src="assets/js/aframe-link-component.js"></script>
     <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/common.js"></script>
   </head>
   <body>
     <a-scene>
       <!-- User -->
+      <!-- Eloquent music borrowed from https://labs.gooengine.com/mozlod/ -->
       <a-entity camera
                 cursor-visible="enabled: true"
                 look-controls
@@ -23,10 +25,12 @@
                 gamepad-controls
                 kinematic-body
                 jump-ability
+                sound="src: assets/audio/Piano.ogg; autoplay: true; loop: true"
                 position="0 1.764 0">
-
-        <a-entity id="cursor" cursor="fuse: true; maxDistance: 10; timeout: 200" geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01" material="color: #004a7e" position="0 0 -0.69"></a-entity>
-
+        <a-entity id="cursor" cursor="fuse: true; maxDistance: 10; timeout: 200" geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01" material="color: #004a7e" position="0 0 -0.7"></a-entity>
+        <a-entity sound="src: assets/audio/Saxophone.ogg; autoplay: true; loop: true; volume: 0.5"></a-entity>
+        <a-entity sound="src: assets/audio/JazzDrums.ogg; autoplay: true; loop: true; volume: 0.25"></a-entity>
+        <a-entity sound="src: assets/audio/DoubleBass.ogg; autoplay: true; loop: true; volume: 0.1"></a-entity>
       </a-entity>
 
       <!-- Ground -->
