@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Movie Theatre ⟡ WebVR for Oculus</title>
+    <meta charset="utf-8">
+    <meta name="author" content="DrawVR <http://drawvr.com/theater/>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no">
+    <script src="https://aframe.io/releases/0.2.0/aframe.js"></script>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script defer src="../../assets/js/common.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-mixin id="box-black" geometry="primitive: box; depth: 0.5" material="shader: standard; metalness: 0.5; color: #000"></a-mixin>
+        <a-mixin id="pillar" geometry="height: 12; width: 1" rotation="0 90 0"></a-mixin>
+        <a-mixin id="sconce" geometry="primitive: cylinder; radius: 0.2; height: 0.5" open-ended="false" material="shader: standard; metalness: 0.5; color: #26030d"></a-mixin>
+      </a-assets>
+
+      <a-entity camera position="0 1.7 7.5" look-controls="enabled: true" cursor-visible="enabled: false" wasd-controls="enabled: true"></a-entity>
+
+      <!-- Ground Highlight -->
+
+      <!-- Ceiling Floor -->
+      <a-entity geometry="primitive: plane; height: 24; width: 22" position="0 0.5 2" rotation="-90 0 0" material="shader: flat; roughness: 1; src: url(assets/img/floor.jpg)"></a-entity>
+      <a-entity geometry="primitive: box; depth: 0.1; height:24; width: 22" position="0 12.5 2" rotation="-90 0 0"  material="shader: standard; side: bottom; src: url(assets/img/stars.jpg)"></a-entity>
+
+      <!-- Front Back Walls -->
+      <a-entity geometry="primitive: box; depth: 0.1; height: 12; width: 22" position="0 6.5 -10" material="shader: standard; color: #000"></a-entity>
+      <a-entity geometry="primitive: box; depth: 0.1; height: 12; width: 22" position="0 6.5 14" material="shader: standard; color: #000"></a-entity>
+
+      <!-- Side Walls -->
+      <a-entity geometry="primitive: box; depth: 0.1; height: 12; width: 24" position="11 6.5 2" rotation="0 90 0" material="shader: standard; roughness: 1; src: url(assets/img/wall.jpg)"></a-entity>
+      <a-entity geometry="primitive: box; depth: 0.1; height: 12; width: 24" position="-11 6.5 2" rotation="0 90 0" material="shader: standard; roughness: 1; src: url(assets/img/wall.jpg)"></a-entity>
+
+      <!-- Molding -->
+      <a-entity geometry="height: 0.5; width: 24" position="-10.75 0.5 2" rotation="0 90 0" mixin="box-black"></a-entity>
+      <a-entity geometry="height: 0.5; width: 24" position="10.75 0.5 2" rotation="0 90 0" mixin="box-black"></a-entity>
+      <a-entity geometry="height: 0.5; width: 24" position="-10.75 12.5 2" rotation="0 90 0" mixin="box-black"></a-entity>
+      <a-entity geometry="height: 0.5; width: 24" position="10.75 12.5 2" rotation="0 90 0" mixin="box-black"></a-entity>
+
+      <!-- Pillars Left -->
+      <a-entity position="-10.8 6.5 -5" mixin="box-black pillar"></a-entity>
+      <a-entity position="-10.8 6.5 0" mixin="box-black pillar"></a-entity>
+      <a-entity position="-10.8 6.5 5" mixin="box-black pillar"></a-entity>
+      <a-entity position="-10.8 6.5 10" mixin="box-black pillar"></a-entity>
+
+      <!-- Pillars Right -->
+      <a-entity position="10.8 6.5 -5" mixin="box-black pillar"></a-entity>
+      <a-entity position="10.8 6.5 0" mixin="box-black pillar"></a-entity>
+      <a-entity position="10.8 6.5 5" mixin="box-black pillar"></a-entity>
+      <a-entity position="10.8 6.5 10" mixin="box-black pillar"></a-entity>
+
+      <!-- Sconces -->
+      <a-entity position="10.7 9.5 -2.5" mixin="sconce"></a-entity>
+      <a-entity position="10.7 9.5 2.5" mixin="sconce"></a-entity>
+      <a-entity position="10.7 9.5 7.5" mixin="sconce"></a-entity>
+      <a-entity position="-10.7 9.5 -2.5" mixin="sconce"></a-entity>
+      <a-entity position="-10.7 9.5 2.5" mixin="sconce"></a-entity>
+      <a-entity position="-10.7 9.5 7.5" mixin="sconce"></a-entity>
+
+      <!-- Speakers -->
+      <a-entity geometry="primitive: box; depth: 0.5; height: 1; width: 0.7" position="10.5 9.5 -7.5" rotation="-10 90 0" material="shader: standard; roughness: 0.7; color: #000"></a-entity>
+      <a-entity geometry="primitive: box; depth: 0.5; height: 1; width: 0.7" position="-10.5 9.5 -7.5" rotation="10 90 0" material="shader: standard; roughness: 0.7; color: #000"></a-entity>
+      <a-entity geometry="primitive: box; depth: 0.5; height: 1; width: 0.7" position="10.5 9.5 12" rotation="-10 90 0" material="shader: standard; roughness: 0.7; color: #000"></a-entity>
+      <a-entity geometry="primitive: box; depth: 0.5; height: 1; width: 0.7" position="-10.5 9.5 12" rotation="10 90 0" material="shader: standard; roughness: 0.7; color: #000"></a-entity>
+
+      <!-- Other -->
+      <a-entity geometry="primitive: plane; height: 2; width: 1" position="5 1.5 13.93" material="shader: flat; side: back; transparent: true; src: url(assets/img/door.png)"></a-entity>
+      <a-entity geometry="primitive: plane; height: 0.5; width: 0.6" position="5 3.5 13.93" material="shader: flat; side: back; transparent: true; src: url(assets/img/exit-sign.png)"></a-entity>
+      <a-entity geometry="primitive: box; depth: 2; height: 16; width: 18" position="0 2.8 -9.1" material="shader: standard; color: #000"></a-entity>
+
+      <a-video src="assets/videos/dying-light.mp4" autoplay="true" width="19" height="11" position="0 5.5 -8"></a-video>
+      <a-model src="assets/models/sofa.dae" scale="1 1 1" position="0 0.35 7.6" rotation="0 90 0"></a-model>
+
+      <!-- Lighting and background -->
+      <a-sky color="#000"></a-sky>
+    </a-scene>
+  </body>
+</html>

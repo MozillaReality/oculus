@@ -16,6 +16,10 @@
   </head>
   <body>
     <a-scene>
+      <a-assets>
+        <a-mixin id="sceneText" text="font: Graph Black; size: 1" material="color: #fff"></a-mixin>
+      </a-assets>
+
       <!-- User -->
       <!-- Eloquent music borrowed from https://labs.gooengine.com/mozlod/ -->
       <a-entity camera
@@ -37,8 +41,14 @@
       <a-grid static-body material="src: url(assets/img/grid.png); repeat: 75 75"></a-grid>
 
       <a-entity id="tron" position="0 0 -4" href="worlds/tron/">
-        <a-box color="#39BB82" width="2.75" height="2.75" depth="1">
-          <a-entity text="font: Graph Black; size: 1; text: Tron" material="color: #fff" position="-1.25 0 0.75"></a-entity>
+        <a-box color="#00d8f5" width="2.75" height="2.75" depth="1">
+          <a-entity text="text: Tron" mixin="sceneText" position="-1.25 0 0.75"></a-entity>
+        </a-box>
+      </a-entity>
+
+      <a-entity id="theatre" position="5 0 -4" href="worlds/theatre/">
+        <a-box color="hotpink" width="4.75" height="2.75" depth="1">
+          <a-entity text="text: Theatre" mixin="sceneText" position="-2.25 0 0.75"></a-entity>
         </a-box>
       </a-entity>
 
