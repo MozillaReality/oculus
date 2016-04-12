@@ -1,5 +1,7 @@
 (function () {
 
+'use strict';
+
 function toArray (obj) {
   return Array.prototype.slice.apply(obj);
 }

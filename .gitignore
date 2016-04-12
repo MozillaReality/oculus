@@ -2,5 +2,6 @@
 .cache
 _build/
 _prod/
+assets/links/
 node_modules/
 npm-debug.log

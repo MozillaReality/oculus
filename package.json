@@ -20,10 +20,13 @@
     "dev": "http-server -c-1",
     "build": "mkdir -p _build/assets/css/ && postcss --use autoprefixer assets/css/style.css -d _build/assets/css/ --browsers 'last 10 versions' --map --no-cascade",
     "publish": "npm run ghpages",
-    "prod": "npm run build && rm -rf _prod/ && mkdir -p _prod/ && cp -r {.nojekyll,assets,CNAME,index.html} _prod/. 2>/dev/null || : && cp -r _build/ _prod/.",
+    "prod": "npm run build && rm -rf _prod/ && mkdir -p _prod/ && cp -r {.nojekyll,assets,CNAME,index.html,sw.js} _prod/. 2>/dev/null || : && cp -r _build/ _prod/.",
     "preghpages": "npm run prod",
     "ghpages": "node ./scripts/gh-pages",
     "gh-pages": "npm run ghpages",
     "deploy": "npm run ghpages"
+  },
+  "dependencies": {
+    "sw-toolbox": "^3.1.1"
   }
 }
