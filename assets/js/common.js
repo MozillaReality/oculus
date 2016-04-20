@@ -100,24 +100,40 @@ window.addEventListener('gamepad.buttonhold.oculusremote.right', function () {
   window.history.forward();
 });
 
-window.addEventListener('gamepad.buttondown.oculusremote.up', fire('down', 'w'));
-window.addEventListener('gamepad.buttonup.oculusremote.up', fire('up', 'w'));
+window.addEventListener('gamepad.buttondown.oculusremote.center', fire('mousedown'));
+window.addEventListener('gamepad.buttonup.oculusremote.center', fire('mouseup'));
+window.addEventListener('gamepad.buttonup.oculusremote.center', fire('click'));
 
-window.addEventListener('gamepad.buttondown.oculusremote.left', fire('down', 'a'));
-window.addEventListener('gamepad.buttonup.oculusremote.left', fire('up', 'a'));
+window.addEventListener('gamepad.buttondown.oculusremote.center', fire('cursor-mousedown'));
+window.addEventListener('gamepad.buttonup.oculusremote.center', fire('cursor-mouseup'));
+window.addEventListener('gamepad.buttonup.oculusremote.center', fire('cursor-click'));
 
-window.addEventListener('gamepad.buttondown.oculusremote.right', fire('down', 'd'));
-window.addEventListener('gamepad.buttonup.oculusremote.right', fire('up', 'd'));
+window.addEventListener('gamepad.buttondown.oculusremote.up', fireKey('down', 'w'));
+window.addEventListener('gamepad.buttonup.oculusremote.up', fireKey('up', 'w'));
 
-window.addEventListener('gamepad.buttondown.oculusremote.down', fire('down', 's'));
-window.addEventListener('gamepad.buttonup.oculusremote.down', fire('up', 's'));
+window.addEventListener('gamepad.buttondown.oculusremote.left', fireKey('down', 'a'));
+window.addEventListener('gamepad.buttonup.oculusremote.left', fireKey('up', 'a'));
 
-function fire (keyEventNameSuffix, key) {
+window.addEventListener('gamepad.buttondown.oculusremote.right', fireKey('down', 'd'));
+window.addEventListener('gamepad.buttonup.oculusremote.right', fireKey('up', 'd'));
+
+window.addEventListener('gamepad.buttondown.oculusremote.down', fireKey('down', 's'));
+window.addEventListener('gamepad.buttonup.oculusremote.down', fireKey('up', 's'));
+
+function fireKey (keyEventNameSuffix, key) {
   var keyUpper = key.toUpperCase();
   return function () {
     var e = new CustomEvent('key' + keyEventNameSuffix, {bubbles: true});
     e.keyCode = e.key = keyUpper.charCodeAt(0);
     document.body.dispatchEvent(e);
+  };
+}
+
+function fire (eventName) {
+  return function () {
+    var e = new CustomEvent(eventName, {bubbles: true});
+    var target = $('a-scene canvas') || document.body;
+    target.dispatchEvent(e);
   };
 }
 
