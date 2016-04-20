@@ -38,7 +38,10 @@
                 kinematic-body
                 jump-ability
                 position="0 1.764 0">
-        <a-entity id="cursor" cursor="fuse: true; maxDistance: 10; timeout: 200" geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01" material="color: #004a7e" position="0 0 -0.7"></a-entity>
+        <a-entity id="cursor" cursor="fuse: true; maxDistance: 10; timeout: 200" geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01" material="color: #004a7e" position="0 0 -0.7">
+          <a-event name="cursor-mousedown" material.color="yellow"></a-event>
+        </a-entity>
+
         <!--
         <a-entity sound="src: assets/audio/Saxophone.ogg; autoplay: true; loop: true; volume: 0.5"></a-entity>
         <a-entity sound="src: assets/audio/JazzDrums.ogg; autoplay: true; loop: true; volume: 0.25"></a-entity>
@@ -47,7 +50,10 @@
       </a-entity>
 
       <!-- Ground -->
-      <a-grid static-body="width: 75; height: 75; depth: 0.5" material="src: url(assets/img/grid.png); repeat: 75 75"></a-grid>
+      <a-grid static-body="width: 75; height: 75; depth: 0.5" material="src: url(assets/img/grid.png); repeat: 75 75">
+        <a-event name="cursor-click" material.color="#FFC65D"></a-event>
+        <a-event name="cursor-mousedown" material.color="red"></a-event>
+      </a-grid>
 
       <a-entity id="tron" position="-3 0 -4" href="worlds/tron/">
         <a-box color="#00d8f5" width="2.75" height="2.75" depth="1">
