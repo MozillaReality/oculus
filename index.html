@@ -5,14 +5,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no">
+
     <script src="assets/js/init.js"></script>
-    <script src="assets/links/aframe.js"></script>
+
+    <script src="https://aframe.io/releases/0.2.0/aframe.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/lib/aframe-extras.js"></script>
+
+    <!-- <script src="assets/js/lib/aframe-extras.js"></script> -->
     <script src="assets/js/lib/aframe-text-component.js"></script>
     <script src="assets/js/fonts/graph-black.js"></script>
     <script src="assets/js/aframe-link-component.js"></script>
-    <script defer src="assets/js/main.js"></script>
+
+    <script defer src="assets/js/gamepad.js"></script>
     <script defer src="assets/js/common.js"></script>
   </head>
   <body>
@@ -23,23 +27,26 @@
 
       <!-- User -->
       <!-- Eloquent music borrowed from https://labs.gooengine.com/mozlod/ -->
+      <!-- <a-entity sound="src: assets/audio/Piano.ogg; autoplay: true; loop: true"> -->
       <a-entity camera
                 cursor-visible="enabled: true"
                 look-controls
                 wasd-controls="acceleration: 200"
                 gamepad-controls
+                universal-controls
                 kinematic-body
                 jump-ability
-                sound="src: assets/audio/Piano.ogg; autoplay: true; loop: true"
                 position="0 1.764 0">
         <a-entity id="cursor" cursor="fuse: true; maxDistance: 10; timeout: 200" geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01" material="color: #004a7e" position="0 0 -0.7"></a-entity>
+        <!--
         <a-entity sound="src: assets/audio/Saxophone.ogg; autoplay: true; loop: true; volume: 0.5"></a-entity>
         <a-entity sound="src: assets/audio/JazzDrums.ogg; autoplay: true; loop: true; volume: 0.25"></a-entity>
         <a-entity sound="src: assets/audio/DoubleBass.ogg; autoplay: true; loop: true; volume: 0.1"></a-entity>
+        -->
       </a-entity>
 
       <!-- Ground -->
-      <a-grid static-body material="src: url(assets/img/grid.png); repeat: 75 75"></a-grid>
+      <a-grid static-body="width: 75; height: 75; depth: 0.5" material="src: url(assets/img/grid.png); repeat: 75 75"></a-grid>
 
       <a-entity id="tron" position="-3 0 -4" href="worlds/tron/">
         <a-box color="#00d8f5" width="2.75" height="2.75" depth="1">

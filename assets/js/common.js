@@ -83,4 +83,10 @@ function Sounds () {
 
 var sounds = new Sounds();
 
+window.addEventListener('gamepad.buttonup.oculusremote.back', function (e) {
+  if (e.button.seconds >= 3) {
+    window.location.href = OCULUS_SETTINGS.urls.root
+  }
+});
+
 })();
