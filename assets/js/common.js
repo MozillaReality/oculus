@@ -1,3 +1,4 @@
+/* global OCULUS_SETTINGS */
 (function () {
 
 'use strict';
@@ -83,10 +84,41 @@ function Sounds () {
 
 var sounds = new Sounds();
 
-window.addEventListener('gamepad.buttonup.oculusremote.back', function (e) {
-  if (e.button.seconds >= 3) {
-    window.location.href = OCULUS_SETTINGS.urls.root
-  }
+window.addEventListener('gamepad.buttonhold.oculusremote.center', function () {
+  window.location.reload();
 });
+
+window.addEventListener('gamepad.buttonhold.oculusremote.back', function () {
+  window.location.href = OCULUS_SETTINGS.urls.root;
+});
+
+window.addEventListener('gamepad.buttonhold.oculusremote.left', function () {
+  window.history.back();
+});
+
+window.addEventListener('gamepad.buttonhold.oculusremote.right', function () {
+  window.history.forward();
+});
+
+window.addEventListener('gamepad.buttondown.oculusremote.up', fire('down', 'w'));
+window.addEventListener('gamepad.buttonup.oculusremote.up', fire('up', 'w'));
+
+window.addEventListener('gamepad.buttondown.oculusremote.left', fire('down', 'a'));
+window.addEventListener('gamepad.buttonup.oculusremote.left', fire('up', 'a'));
+
+window.addEventListener('gamepad.buttondown.oculusremote.right', fire('down', 'd'));
+window.addEventListener('gamepad.buttonup.oculusremote.right', fire('up', 'd'));
+
+window.addEventListener('gamepad.buttondown.oculusremote.down', fire('down', 's'));
+window.addEventListener('gamepad.buttonup.oculusremote.down', fire('up', 's'));
+
+function fire (keyEventNameSuffix, key) {
+  var keyUpper = key.toUpperCase();
+  return function () {
+    var e = new CustomEvent('key' + keyEventNameSuffix, {bubbles: true});
+    e.keyCode = e.key = keyUpper.charCodeAt(0);
+    document.body.dispatchEvent(e);
+  };
+}
 
 })();

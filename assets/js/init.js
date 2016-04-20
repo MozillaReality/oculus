@@ -10,7 +10,7 @@ var oculusSettings = {
   }
 };
 
-if (window.location.pathname.indexOf('/oculus/') === -1) {
+if (window.location.pathname.indexOf('/oculus/') !== -1) {
   oculusSettings.urls.root = window.location.pathname.split('/oculus/')[0] + '/oculus/';
 }
 

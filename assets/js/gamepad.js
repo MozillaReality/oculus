@@ -162,6 +162,10 @@ Gamepads.prototype.poll = function () {
 
         if (previousBtnState.button.pressed && btnState.button.pressed) {
           this.state[gp.id]['b' + j].button.count++;
+          if (this.state[gp.id]['b' + j].button.count >= 50) {
+            emitEvent(['gamepad.buttonhold', btnState]);
+            this.state[gp.id]['b' + j].button.count = 0;
+          }
         }
 
         if (!previousBtnState.button.pressed && btnState.button.pressed) {
